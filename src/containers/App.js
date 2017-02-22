@@ -10,10 +10,13 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
+  Colors,
   Button
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Styles from './styles/AppStyle';
+import { Fonts } from '../themes/'
 
 export default class App extends Component {
   state = {
@@ -39,9 +42,13 @@ export default class App extends Component {
     navigator.geolocation.clearWatch(this.watchID);
   }
 
+  test() {
+    alert('ho');
+  }
+
   render() {
     return (
-      <View style={Styles.container} >
+      <View style={Styles.container} >        
         <MapView style={Styles.map} showsUserLocation showsMyLocationButton followsUserLocation
           initialRegion={{
             latitude: this.state.currentPosition.latitude,
@@ -51,9 +58,36 @@ export default class App extends Component {
           }}
         >
           {/*<MapView.Marker coordinate={this.state.currentPosition} />*/}
-        </MapView>
-        <Button title="Ayudaaaa">Ayudaaaaa</Button>
+        </MapView>  
+        <TouchableOpacity style={styles.button} onPress={this.test}>
+        <Text style={styles.buttonText}>Holaaaa</Text>
+      </TouchableOpacity>
+        {/*<Button onPress={this.test} style={styles.button} title="Ayuddaa" />*/}
+        {/*<View style={styles.inputsContainer}>      
+        <TouchableOpacity style={styles.fullWidthButton} onPress={this.test}>
+        <Text>Holaaaa</Text>
+      </TouchableOpacity>
+      </View>*/}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    // flex:1,
+    // marginVertical: 5,
+    // borderTopColor: Colors.green,
+    // borderBottomColor: Colors.bloodOrange,
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    // backgroundColor: Colors.red
+  },
+  buttonText: {
+    margin:5,
+    textAlign: 'center',
+    // color: Colors.white,
+    fontSize: Fonts.size.h4,
+    fontFamily: Fonts.type.normal
+  }
+});
