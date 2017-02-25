@@ -1,7 +1,7 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
-const reducers = combineReducers({
+const IndexReducers = combineReducers({
   login: require('./LoginReducer').reducer
 });
 
-export default reducers;
+export default IndexReducers;

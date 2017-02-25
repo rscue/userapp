@@ -1,25 +1,26 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import { createStore } from 'redux';
-import reducers from '../redux/index';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga'  
 
-const store = createStore(reducers);
+import IndexReducers from '../redux/index';
+import IndexSagas from '../sagas/index';
+
+import RootContainer from './RootContainer';
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(IndexReducers, compose(applyMiddleware(sagaMiddleware)));
+
+sagaMiddleware.run(IndexSagas);
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store} >
-        <View>
-          <Text>HOlaaaaa </Text>
-        </View>
+        <RootContainer/>
       </Provider>
     );
   }
+
+  
 }
