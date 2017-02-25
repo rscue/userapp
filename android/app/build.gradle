@@ -99,6 +99,10 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
     splits {
         abi {
             reset()
@@ -140,6 +144,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-lock')
     compile project(':react-native-config')
     compile project(':react-native-maps')
     compile fileTree(dir: "libs", include: ["*.jar"])
