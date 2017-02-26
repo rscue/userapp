@@ -1,13 +1,14 @@
 import { select, put } from 'redux-saga/effects';
 
-import LoginActions from '../redux/LoginReducer';
+import AuthActions from '../redux/AuthReducer';
 
-export const selectUserAuthenticated = (state) => state.login.isAuthenticated;
+export const selectUserAuthenticated = (state) => state.auth.isAuthenticated;
 
 export function* startupFlow() {
   let isAuthenticated = yield select(selectUserAuthenticated);
   if (!isAuthenticated) {
-    yield put(LoginActions.loginRequest());
+    yield put(AuthActions.loginRequest());
+  } else {
+    yield put(AuthActions.refreshIdTokenRequest());
   }
-  //alert(login.profile);
 }

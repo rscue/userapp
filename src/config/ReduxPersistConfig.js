@@ -3,7 +3,7 @@ import { AsyncStorage } from 'react-native'
 
 const REDUX_PERSIST_CONFIG = {
   active: true,
-  reducerVersion: '0',
+  reducerVersion: '2',
   storeConfig: {
     storage: AsyncStorage,
     //blacklist: [], // reducer keys that you do NOT want stored to persistence here

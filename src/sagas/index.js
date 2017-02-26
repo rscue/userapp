@@ -1,14 +1,15 @@
 import { takeLatest } from 'redux-saga/effects';
 
-import { LoginTypes } from '../redux/LoginReducer';
+import { AuthTypes } from '../redux/AuthReducer';
 import { StartupTypes } from '../redux/StartupReducer';
 
-import { loginFlow } from './LoginSaga';
+import { authFlow, authRefreshIdTokenFlow } from './AuthSaga';
 import { startupFlow } from './StartupSaga';
 
 export default function* IndexSaga() {
   yield [
     takeLatest(StartupTypes.STARTUP, startupFlow),
-    takeLatest(LoginTypes.LOGIN_REQUEST, loginFlow)
+    takeLatest([AuthTypes.LOGIN_REQUEST, AuthTypes.LOGOUT_REQUEST], authFlow),
+    takeLatest(AuthTypes.REFRESH_ID_TOKEN_REQUEST, authRefreshIdTokenFlow)
   ]
 }

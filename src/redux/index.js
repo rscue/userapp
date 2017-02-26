@@ -4,7 +4,7 @@ import rootSaga from '../sagas';
 
 export default () => {
   const rootReducers = combineReducers({
-    login: require('./LoginReducer').reducer
+    auth: require('./AuthReducer').reducer
   });
 
   return configureStore(rootReducers, rootSaga);

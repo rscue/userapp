@@ -21,7 +21,7 @@ export default (rootReducer, rootSaga) => {
     RehydrationServices.updateReducers(store);
   }
 
-  sagaMiddleware.run(rootSaga, store.dispatch);
+  sagaMiddleware.run(rootSaga);
 
   return store;
 }
