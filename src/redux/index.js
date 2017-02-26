@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
+import configureStore from './CreateStore';
+import rootSaga from '../sagas';
 
-const IndexReducers = combineReducers({
-  login: require('./LoginReducer').reducer
-});
+export default () => {
+  const rootReducers = combineReducers({
+    login: require('./LoginReducer').reducer
+  });
 
-export default IndexReducers;
+  return configureStore(rootReducers, rootSaga);
+}

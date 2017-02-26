@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "ramda": "^0.23.0",
     "react": "~15.4.0",
     "react-native": "0.41.2",
     "react-native-config": "^0.3.1",
@@ -13,6 +14,7 @@
     "react-native-maps": "0.13.0",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-persist": "^4.4.2",
     "redux-saga": "^0.14.3",
     "reduxsauce": "^0.4.1",
     "seamless-immutable": "^7.0.1"

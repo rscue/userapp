@@ -3,8 +3,8 @@ import Immutable from 'seamless-immutable'
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
-  loginRequest: ['creds'],
-  loginSuccess: ['user'],
+  loginRequest: null,
+  loginSuccess: ['profile'],
   loginError: ['message']
 });
 
@@ -15,15 +15,16 @@ export default Creators;
 const INITIAL_STATE = Immutable({
   isFetching: false,
   isAuthenticated: false,
-  message: null
+  message: null,
+  profile: null
 });
 
 /* ------------- Reducers ------------- */
-export const request = (state: Object, {creds}: Object) =>
-  state.merge({ isFetching: true, isAuthenticated: false, user: creds, message: null });
+export const request = (state: Object) =>
+  state.merge({ isFetching: true, isAuthenticated: false, profile: null, message: null });
 
-export const success = (state: Object) =>
-  state.merge({ isFetching: false, isAuthenticated: true, message: null });
+export const success = (state: Object, {profile}: Object) =>
+  state.merge({ isFetching: false, isAuthenticated: true, message: null, profile });
 
 export const failure = (state: Object, {message}: Object) =>
   state.merge({ isFetching: false, isAuthenticated: false, message });
