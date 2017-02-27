@@ -31,7 +31,7 @@ const mapStateToProps = (state) => {
     profile: state.auth.profile,
     isAuthenticated: state.auth.isAuthenticated,
     token: state.auth.refreshToken
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({

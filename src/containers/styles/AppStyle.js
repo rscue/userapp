@@ -1,7 +1,7 @@
 // @flow
 
-import { StyleSheet } from 'react-native'
-import { ApplicationStyles } from '../../themes/'
+import { StyleSheet } from 'react-native';
+import { ApplicationStyles } from '../../themes/';
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
@@ -19,4 +19,4 @@ export default StyleSheet.create({
     // bottom: 0
     flex:2
   }
-})
+});

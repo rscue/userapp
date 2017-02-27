@@ -6,17 +6,14 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
-  Colors,
-  Button
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Styles from './styles/AppStyle';
-import { Fonts } from '../themes/'
+import { Fonts } from '../themes/';
 
 export default class MapViewContainer extends Component {
   state = {
@@ -27,15 +24,15 @@ export default class MapViewContainer extends Component {
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(position => {
-      let currentPosition = JSON.stringify(position);
-      console.log(position.coords);
+      //let currentPosition = JSON.stringify(position);
+      //console.log(position.coords);
       this.setState({ currentPosition: position.coords });
     });
     this.watchID = navigator.geolocation.watchPosition(position => {
-      let currentPosition = JSON.stringify(position);
-      console.log(position.coords);
+      //let currentPosition = JSON.stringify(position);
+      //console.log(position.coords);
       this.setState({ currentPosition: position.coords });
-    })
+    });
   }
 
   componentWillUnmount() {

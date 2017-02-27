@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce';
-import Immutable from 'seamless-immutable'
+import Immutable from 'seamless-immutable';
 
 /* ------------- Types and Action Creators ------------- */
 const { Types, Creators } = createActions({
@@ -29,7 +29,7 @@ export const request = (state: Object) =>
 export const success = (state: Object, {profile, refreshToken, idToken}: Object) =>
   state.merge({ isFetching: false, isAuthenticated: true, profile, refreshToken, idToken });
 
-export const logout = (state: Object) => INITIAL_STATE;
+export const logout = () => INITIAL_STATE;
 
 export const refreshIdToken = (state: Object, {idToken}: Object) =>
   state.merge({ idToken, isFetching: false });

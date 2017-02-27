@@ -11,5 +11,5 @@ export default function* IndexSaga() {
     takeLatest(StartupTypes.STARTUP, startupFlow),
     takeLatest([AuthTypes.LOGIN_REQUEST, AuthTypes.LOGOUT_REQUEST], authFlow),
     takeLatest(AuthTypes.REFRESH_ID_TOKEN_REQUEST, authRefreshIdTokenFlow)
-  ]
+  ];
 }

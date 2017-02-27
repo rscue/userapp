@@ -1,7 +1,7 @@
 import Auth0Lock from 'react-native-lock';
 import Config from 'react-native-config';
 import { put, call, select } from 'redux-saga/effects';
-import { delay } from 'redux-saga'
+import { delay } from 'redux-saga';
 import jwtDecode from 'jwt-decode';
 
 import AuthActions from '../redux/AuthReducer';
@@ -45,7 +45,7 @@ export function* authRefreshIdTokenFlow() {
     while (true) {
       let diffTime = yield call(authGetIdTokenExpiration);
       yield delay(diffTime);
-      yield refreshToken = yield select(selectRefreshToken);
+      let refreshToken = yield select(selectRefreshToken);
       let token = yield call([authenticationAPI, authenticationAPI.refreshToken], refreshToken);
       if (token.idToken) {
         yield put(AuthActions.refreshIdTokenSuccess(token.idToken));

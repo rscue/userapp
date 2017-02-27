@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga'
-import { autoRehydrate } from 'redux-persist'
+import createSagaMiddleware from 'redux-saga';
+import { autoRehydrate } from 'redux-persist';
 
-import RehydrationServices from '../config/RehydrationServices';
+import RehydrationServices from '../services/RehydrationServices';
 import ReduxPersistConfig from '../config/ReduxPersistConfig';
 
 export default (rootReducer, rootSaga) => {
-  const enhancers = []
+  const enhancers = [];
 
   const sagaMiddleware = createSagaMiddleware();
   enhancers.push(applyMiddleware(sagaMiddleware));
@@ -24,4 +24,4 @@ export default (rootReducer, rootSaga) => {
   sagaMiddleware.run(rootSaga);
 
   return store;
-}
+};
