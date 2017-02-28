@@ -6,7 +6,7 @@ const { Types, Creators } = createActions({
   loginRequest: null,
   loginSuccess: ['profile', 'refreshToken', 'idToken'],
   refreshIdTokenRequest: null,
-  refreshIdTokenSuccess: ['idToken'],
+  refreshIdTokenSuccess: ['apiIdToken'],
   logoutRequest: null
 });
 
@@ -19,20 +19,20 @@ const INITIAL_STATE = Immutable({
   isAuthenticated: false,
   profile: null,
   refreshToken: null,
-  idToken: null
+  apiIdToken: null
 });
 
 /* ------------- Reducers ------------- */
 export const request = (state: Object) =>
   state.merge({ isFetching: true });
 
-export const success = (state: Object, {profile, refreshToken, idToken}: Object) =>
-  state.merge({ isFetching: false, isAuthenticated: true, profile, refreshToken, idToken });
+export const success = (state: Object, {profile, refreshToken}: Object) =>
+  state.merge({ isFetching: false, isAuthenticated: true, profile, refreshToken });
 
 export const logout = () => INITIAL_STATE;
 
-export const refreshIdToken = (state: Object, {idToken}: Object) =>
-  state.merge({ idToken, isFetching: false });
+export const refreshApiIdToken = (state: Object, {apiIdToken}: Object) =>
+  state.merge({ apiIdToken, isFetching: false });
 
 /* ------------- Hookup Reducers To Types ------------- */
 
@@ -40,7 +40,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.LOGIN_REQUEST]: request,
   [Types.LOGIN_SUCCESS]: success,
   [Types.REFRESH_ID_TOKEN_REQUEST]: request,
-  [Types.REFRESH_ID_TOKEN_SUCCESS]: refreshIdToken,
+  [Types.REFRESH_ID_TOKEN_SUCCESS]: refreshApiIdToken,
   [Types.LOGOUT_REQUEST]: logout
 });
 
