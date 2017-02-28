@@ -17,6 +17,7 @@
     "react-native-maps": "0.13.0",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
+    "redux-logger": "^2.8.1",
     "redux-persist": "^4.4.2",
     "redux-saga": "^0.14.3",
     "reduxsauce": "^0.4.1",
@@ -33,7 +34,11 @@
     "eslint-plugin-jsx-a11y": "3.0.2",
     "eslint-plugin-react": "6.9.0",
     "jest": "19.0.1",
-    "react-test-renderer": "~15.4.0"
+    "react-test-renderer": "~15.4.0",
+    "reactotron-apisauce": "^1.7.0",
+    "reactotron-react-native": "^1.7.0",
+    "reactotron-redux": "^1.7.0",
+    "reactotron-redux-saga": "^1.7.0"
   },
   "jest": {
     "preset": "react-native"
