@@ -23,6 +23,7 @@ class ProfileContainer extends Component {
           <Picker.Item label="Moto de agua" value="WaterBike" />
           <Picker.Item label="Yate" value="Yacht" />
         </FloatLabelPicker>
+        <FloatLabelTextInput returnKeyType='next' error='El correo electrónico no es valido' >Correo electrónico</FloatLabelTextInput>
       </Content >
     );
   }

@@ -10,8 +10,20 @@ const labelStyleObj = {
 export default StyleSheet.create({
   element: {
     position: 'relative'
-  },  
-  label: labelStyleObj
+  },
+  label: labelStyleObj,
+  error: {
+    color: '#900'
+  },
+  input: {
+    height: 40,
+    backgroundColor: 'transparent',
+    justifyContent: 'center',
+    color: 'black',
+    fontSize: 20,
+    paddingLeft: 10,
+    marginTop: 20,
+  },
 });
 
 export const cleanStyle = {

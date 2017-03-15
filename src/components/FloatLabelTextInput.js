@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import styles, { cleanStyle, dirtyStyle} from './styles/FloatLabelTextInputStyle';
+import styles, { cleanStyle, dirtyStyle } from './styles/FloatLabelTextInputStyle';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {  
+import {
   TextInput,
   Animated,
   Easing,
@@ -54,7 +55,7 @@ class FloatLabelTextInput extends Component {
     }
   }
 
-  _onFocus = () =>  {
+  _onFocus = () => {
     this._animate(true);
     this.setState({ dirty: true });
     if (this.props.onFocus) {
@@ -79,10 +80,20 @@ class FloatLabelTextInput extends Component {
   }
 
   _renderLabel = () => {
+    let labelStyles = [this.state.labelStyle, styles.label, this.props.labelStyle];
+    if (this.props.error) {
+      labelStyles.push(styles.error);
+    }
+    const AnimatedIcon = Animated.createAnimatedComponent(Icon);
     return (
-      <Animated.Text ref='label' style={[this.state.labelStyle, styles.label, this.props.labelStyle]}>
-        {this.props.children}
-      </Animated.Text>
+      <View>
+        <Animated.Text ref='label' style={labelStyles}>
+          {this.props.children}
+        </Animated.Text>
+        {this.props.error ? (
+          <AnimatedIcon name="exclamation-circle" style={[labelStyles, { right: 5 }]} />
+        ) : null}
+      </View>
     );
   }
 
@@ -133,9 +144,10 @@ class FloatLabelTextInput extends Component {
       <View style={elementStyles} >
         {this._renderLabel()}
         <TextInput {...props} ref='textInput' />
+        <Text style={styles.error}>{this.props.error}</Text>
       </View>
     );
-  }  
+  }
 }
 
 const textPropTypes = Text.propTypes || View.propTypes;
@@ -145,7 +157,8 @@ FloatLabelTextInput.propTypes = {
   inputStyle: textInputPropTypes.style,
   labelStyle: textPropTypes.style,
   disabled: PropTypes.bool,
-  style: Text.propTypes.style
+  style: Text.propTypes.style,
+  error: PropTypes.string
 };
 
 export default FloatLabelTextInput;

@@ -17,9 +17,12 @@ export default StyleSheet.create({
     marginLeft: -5
   },
   picker: {
-    marginLeft: -8,
     marginRight: -18,
-    marginTop: 3
+    height: 40,
+    justifyContent: 'center',
+    color: 'black',
+    paddingLeft: 10,
+    marginTop: 15,
   }
 });
 
