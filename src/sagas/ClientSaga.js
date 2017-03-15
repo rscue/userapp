@@ -8,7 +8,6 @@ export function* getClient(api, action) {
     if (response.ok) {
       yield put(ClientActions.clientSuccess(response.data));
     } else {
-      window.tron.debug(response);
       yield put(ClientActions.clientFailure(response.problem));
     }
   } catch (error) {
