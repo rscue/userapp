@@ -5,6 +5,7 @@ import { View, StatusBar } from 'react-native';
 import ReduxPersistConfig from '../config/ReduxPersistConfig';
 import StartupActions from '../redux/StartupReducer';
 import styles from './styles/RootContainerStyle';
+import colors from '../themes/Colors';
 
 import NavigationRouter from '../navigation/NavigationRouter';
 
@@ -18,7 +19,7 @@ class RootContainer extends Component {
   render() {
     return (
       <View style={styles.applicationView}>
-        <StatusBar barStyle='light-content' />
+        <StatusBar barStyle='light-content' backgroundColor={colors.primary} />
         <NavigationRouter />        
       </View>
     );

@@ -79,6 +79,10 @@ class FloatLabelTextInput extends Component {
     }
   }
 
+  _showError = () => {
+    alert(this.props.error);
+  }
+
   _renderLabel = () => {
     let labelStyles = [this.state.labelStyle, styles.label, this.props.labelStyle];
     if (this.props.touched && this.props.error) {
@@ -91,7 +95,7 @@ class FloatLabelTextInput extends Component {
           {this.props.children}
         </Animated.Text>
         {this.props.touched && this.props.error ? (
-          <AnimatedIcon name="exclamation-circle" style={[labelStyles, { right: 5 }]} />
+          <AnimatedIcon onPress={this._showError} name="exclamation-circle" style={[labelStyles, { right: 5 }]} />
         ) : null}
       </View>
     );
@@ -144,7 +148,6 @@ class FloatLabelTextInput extends Component {
       <View style={elementStyles} >
         {this._renderLabel()}
         <TextInput {...props} ref='textInput' />
-        {this.props.touched && this.props.error ? (<Text style={styles.error}>{this.props.error}</Text>) : null}
       </View>
     );
   }
