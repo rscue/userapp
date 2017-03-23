@@ -13,6 +13,33 @@ const styles = {
   },
   buttonText: {
     color: 'white'
+  },
+  btnImageContainer: {
+    paddingTop: 20,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btnImage: {
+    borderColor: colors.background,
+    backgroundColor: colors.primary,
+    borderWidth: 10,
+    borderRadius: 20,
+    alignSelf: 'center',
+    position: 'absolute',
+    top: 170,
+    left: 200,
+    elevation: 10
+  },
+  imageContainer: {
+    elevation: 10,
+    backgroundColor: 'grey',
+    borderRadius: 200
+  },
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 200
   }
 };
 

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { View, Picker, ScrollView } from 'react-native';
+import { View, Picker, ScrollView, Image } from 'react-native';
 import Button from 'apsl-react-native-button';
 import FloatLabelTextInput from '../components/FloatLabelTextInput';
 import FloatLabelPicker from '../components/FloatLabelPicker';
 import Content from '../components/ContentComponent';
 import styles from './styles/ProfileFormStyle';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const validateEmail = email => {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -77,6 +78,14 @@ class ProfileForm extends Component {
     return (
       <ScrollView style={{ padding: 0 }}>
         <Content>
+          <View style={styles.btnImageContainer}>
+            <View style={styles.imageContainer} >
+              <Image source={require('../images/nobody.jpg')} style={styles.image} />
+            </View>
+            <Button style={styles.btnImage} >
+              <Icon name='camera' size={25} color='white' />
+            </Button>
+          </View>
           <Field name='name' returnKeyType='next' component={RenderTextInput} label='Nombre'
             onSubmitEditing={() => this.refs.lastNameInput.getRenderedComponent().refs.textInput.focus()} />
           <Field name='lastName' returnKeyType='next' component={RenderTextInput} label='Apellido' withRef ref='lastNameInput'
